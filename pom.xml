@@ -23,6 +23,8 @@
         <assertj.version>3.22.0</assertj.version>
         <slf4j.version>1.7.35</slf4j.version>
         <log4j2.version>2.17.1</log4j2.version>
+        <emf.version>2.26.0</emf.version>
+        <emf.xmi.version>2.16.0</emf.xmi.version>
     </properties>
 
     <dependencies>
@@ -30,8 +32,23 @@
         <!-- Compile dependencies -->
 
         <dependency>
+            <groupId>org.eclipse.emf</groupId>
+            <artifactId>org.eclipse.emf.ecore</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.emf</groupId>
+            <artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
         </dependency>
 
         <!-- Test dependencies -->
@@ -48,18 +65,23 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Note: do not put SLF4J bindings in compile classpath, you don't want to ship a specific binding,
-        otherwise there is no point in using SLF4J -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-            <scope>test</scope>
-        </dependency>
-
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+
+            <!-- EMF Dependencies -->
+            <dependency>
+                <groupId>org.eclipse.emf</groupId>
+                <artifactId>org.eclipse.emf.ecore</artifactId>
+                <version>${emf.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.eclipse.emf</groupId>
+                <artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+                <version>${emf.xmi.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.slf4j</groupId>
